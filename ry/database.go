@@ -32,19 +32,27 @@ func (db Database) Open() error {
 	}
 	err = db.Init(Group{})
 	if err != nil {
-		return fmt.Errorf("could not register User{}: %s", err)
+		return fmt.Errorf("could not register Group{}: %s", err)
 	}
 	err = db.Init(Permission{})
 	if err != nil {
-		return fmt.Errorf("could not register User{}: %s", err)
+		return fmt.Errorf("could not register Permission{}: %s", err)
 	}
 	err = db.Init(GroupPermission{})
 	if err != nil {
-		return fmt.Errorf("could not register User{}: %s", err)
+		return fmt.Errorf("could not register GroupPermission{}: %s", err)
 	}
 	err = db.Init(UserGroup{})
 	if err != nil {
-		return fmt.Errorf("could not register User{}: %s", err)
+		return fmt.Errorf("could not register UserGroup{}: %s", err)
+	}
+	err = db.Init(Setting{})
+	if err != nil {
+		return fmt.Errorf("could not register Setting{}: %s", err)
+	}
+	err = db.Init(MenuItem{})
+	if err != nil {
+		return fmt.Errorf("could not register MenuItem{}: %s", err)
 	}
 
 	return nil

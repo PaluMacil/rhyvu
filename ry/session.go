@@ -16,7 +16,7 @@ import (
 type Session struct {
 	Token     uuid.UUID `storm:"id"`
 	User      User      `storm:"index"`
-	CreatedAt time.Time
+	Created   time.Time
 	HeartBeat time.Time
 }
 
@@ -51,7 +51,7 @@ func TokenHandler(w http.ResponseWriter, r *http.Request) {
 		session := Session{
 			Token:     uuid.NewV4(),
 			User:      user,
-			CreatedAt: time.Now(),
+			Created:   time.Now(),
 			HeartBeat: time.Now(),
 		}
 		err = Db.Save(&session)
